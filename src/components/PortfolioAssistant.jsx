@@ -537,7 +537,7 @@ export default function PortfolioAssistant() {
                         initial={{ opacity: 0, scale: 0.92, x: 40 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0.92, x: 40 }}
-                        className="pointer-events-auto w-[85vw] sm:w-[350px] h-[480px] flex flex-col rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,229,255,0.15)] border border-cyan-500/20 bg-[#050816]/95 backdrop-blur-xl mb-4 relative"
+                        className="pointer-events-auto w-[80vw] sm:w-[310px] h-[420px] flex flex-col rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,229,255,0.15)] border border-cyan-500/20 bg-[#050816]/95 backdrop-blur-xl mb-3 relative"
                     >
                         {/* CRT Scanline Glitch Style HUD Overlay */}
                         <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,229,255,0.04)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-70" />
@@ -549,7 +549,7 @@ export default function PortfolioAssistant() {
                         <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent pointer-events-none" />
 
                         {/* Header */}
-                        <div className="flex items-center justify-between px-5 py-4 border-b border-cyan-500/10 bg-slate-950/60 z-20">
+                        <div className="flex items-center justify-between px-4 py-3 border-b border-cyan-500/10 bg-slate-950/60 z-20">
                             <div className="flex items-center gap-2.5">
                                 <div className="relative">
                                     <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping absolute inset-0" />
@@ -586,7 +586,7 @@ export default function PortfolioAssistant() {
                         </div>
 
                         {/* Messages panel */}
-                        <div className="flex-grow overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-cyan-500/10 scrollbar-track-transparent z-20">
+                        <div className="flex-grow overflow-y-auto p-3.5 space-y-3.5 scrollbar-thin scrollbar-thumb-cyan-500/10 scrollbar-track-transparent z-20">
                             {messages.map((msg, index) => {
                                 const isAi = msg.sender === 'ai';
                                 return (
@@ -653,12 +653,12 @@ export default function PortfolioAssistant() {
                         </div>
 
                         {/* Suggestion Chips */}
-                        <div className="px-4 py-2.5 flex gap-2 overflow-x-auto border-t border-cyan-500/10 bg-slate-950/40 scrollbar-none whitespace-nowrap z-20">
+                        <div className="px-3.5 py-1.5 flex gap-1.5 overflow-x-auto border-t border-cyan-500/10 bg-slate-950/40 scrollbar-none whitespace-nowrap z-20">
                             {SUGGESTIONS.map((item, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => handleSuggestionClick(item)}
-                                    className="px-3 py-1 bg-cyan-950/20 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-400 text-cyan-300 hover:text-white rounded-md text-[9px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer shadow-inner"
+                                    className="px-2.5 py-0.5 bg-cyan-950/20 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-400 text-cyan-300 hover:text-white rounded-md text-[8.5px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer shadow-inner"
                                 >
                                     [{item}]
                                 </button>
@@ -666,7 +666,7 @@ export default function PortfolioAssistant() {
                         </div>
 
                         {/* Input Footer */}
-                        <div className="p-3 border-t border-cyan-500/10 bg-[#050816] flex items-center gap-2 z-20">
+                        <div className="p-2 border-t border-cyan-500/10 bg-[#050816] flex items-center gap-1.5 z-20">
                             <input
                                 ref={inputRef}
                                 type="text"
@@ -674,13 +674,13 @@ export default function PortfolioAssistant() {
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 placeholder="ENTER SECURE COMMAND..."
-                                className="flex-grow bg-slate-950 border border-cyan-500/20 focus:border-cyan-400 rounded-xl px-4 py-2 text-xs font-mono text-cyan-100 placeholder-cyan-700 outline-none transition-all duration-300 w-full focus:shadow-[0_0_12px_rgba(0,229,255,0.1)]"
+                                className="flex-grow bg-slate-950 border border-cyan-500/20 focus:border-cyan-400 rounded-xl px-3 py-1.5 text-[11px] font-mono text-cyan-100 placeholder-cyan-700 outline-none transition-all duration-300 w-full focus:shadow-[0_0_12px_rgba(0,229,255,0.1)]"
                             />
                             <button
                                 onClick={() => handleSendMessage(inputValue)}
-                                className="p-2 ml-1 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white flex items-center justify-center cursor-pointer shadow-[0_0_10px_rgba(0,229,255,0.2)] transition-all border border-cyan-400/20"
+                                className="p-1.5 ml-0.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white flex items-center justify-center cursor-pointer shadow-[0_0_10px_rgba(0,229,255,0.2)] transition-all border border-cyan-400/20"
                             >
-                                <Send size={13} />
+                                <Send size={11} />
                             </button>
                         </div>
                     </motion.div>
@@ -706,8 +706,8 @@ export default function PortfolioAssistant() {
                 </AnimatePresence>
 
                 {/* Cyberpunk Hologram Chamber Frame */}
-                {/* Desktop: 280–350px tall | Tablet: 220px tall | Mobile: 160–180px tall */}
-                <div className="w-[130px] h-[178px] sm:w-[170px] sm:h-[220px] lg:w-[240px] lg:h-[340px] relative group select-none rounded-3xl overflow-hidden border border-cyan-500/10 shadow-[0_0_20px_rgba(0,E5,FF,0.05)] bg-[#050816]">
+                {/* Compact design */}
+                <div className="w-[105px] h-[145px] sm:w-[135px] sm:h-[185px] lg:w-[190px] lg:h-[265px] relative group select-none rounded-3xl overflow-hidden border border-cyan-500/10 shadow-[0_0_20px_rgba(0,E5,FF,0.05)] bg-[#050816]">
 
                     {/* Sci-fi HUD crosshair details on corners */}
                     <div className="absolute top-2 left-2 text-cyan-500/40 font-mono text-[7px] pointer-events-none">LNK.01</div>
