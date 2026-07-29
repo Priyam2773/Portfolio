@@ -168,6 +168,55 @@ export default function ParticlesBackground() {
             ctx.fillStyle = radialGrad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+            // 1.5 Draw Cyberpunk Glowing Moon (with parallax)
+            const moonRadius = Math.min(canvas.width, canvas.height) > 600 ? 56 : 38;
+            const moonX = canvas.width * 0.82 - mX * 8;
+            const moonY = canvas.height * 0.22 - mY * 8;
+
+            // A. Outer Cyberpunk Glow
+            const moonGlow = ctx.createRadialGradient(moonX, moonY, moonRadius * 0.8, moonX, moonY, moonRadius * 2.8);
+            moonGlow.addColorStop(0, 'rgba(0, 229, 255, 0.25)'); // Cyan core glow
+            moonGlow.addColorStop(0.4, 'rgba(138, 43, 226, 0.12)'); // Purple glow
+            moonGlow.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = moonGlow;
+            ctx.beginPath();
+            ctx.arc(moonX, moonY, moonRadius * 2.8, 0, Math.PI * 2);
+            ctx.fill();
+
+            // B. Draw Moon Body (Crescent style or layered cyber-ring)
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(moonX, moonY, moonRadius, 0, Math.PI * 2);
+            ctx.clip();
+
+            // Fill moon body with vertical cyan-to-purple gradient
+            const moonBodyGrad = ctx.createLinearGradient(moonX, moonY - moonRadius, moonX, moonY + moonRadius);
+            moonBodyGrad.addColorStop(0, '#ffffff');
+            moonBodyGrad.addColorStop(0.3, '#E0F7FA');
+            moonBodyGrad.addColorStop(0.8, '#00E5FF');
+            moonBodyGrad.addColorStop(1, '#8A2BE2');
+            ctx.fillStyle = moonBodyGrad;
+            ctx.beginPath();
+            ctx.arc(moonX, moonY, moonRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // C. Layered crescent shadow (overlapping offset circle) to create a crescent moon effect
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(moonX - moonRadius * 0.35, moonY - moonRadius * 0.1, moonRadius * 0.95, 0, Math.PI * 2);
+            ctx.fill();
+
+            // D. Draw horizontal cyber-retro scanlines across the moon body
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.55)';
+            ctx.lineWidth = 2.5;
+            for (let yOffset = -moonRadius; yOffset < moonRadius; yOffset += 6) {
+                ctx.beginPath();
+                ctx.moveTo(moonX - moonRadius, moonY + yOffset);
+                ctx.lineTo(moonX + moonRadius, moonY + yOffset);
+                ctx.stroke();
+            }
+            ctx.restore();
+
             // 2. Draw Electronic Circuit Board Lines in corners (static/parallax background details)
             ctx.strokeStyle = 'rgba(0, 229, 255, 0.06)';
             ctx.lineWidth = 1.5;
