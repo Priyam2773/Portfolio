@@ -142,12 +142,15 @@ export default function ParticlesBackground() {
 
         handleResize();
 
+        // Helper for linear interpolation
+        const lerp = (start, end, amt) => start + (end - start) * amt;
+
         // Animation Loop
         const animate = () => {
             time++;
             // Smoothly interpolate mouse coordinates for damping deceleration
-            mouseRef.current.x = THREE.MathUtils.lerp(mouseRef.current.x, mouseRef.current.targetX, 0.05);
-            mouseRef.current.y = THREE.MathUtils.lerp(mouseRef.current.y, mouseRef.current.targetY, 0.05);
+            mouseRef.current.x = lerp(mouseRef.current.x, mouseRef.current.targetX, 0.05);
+            mouseRef.current.y = lerp(mouseRef.current.y, mouseRef.current.targetY, 0.05);
 
             const mX = mouseRef.current.x;
             const mY = mouseRef.current.y;

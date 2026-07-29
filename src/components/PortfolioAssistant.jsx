@@ -716,7 +716,7 @@ export default function PortfolioAssistant() {
                     <div className="absolute bottom-2 right-2 text-cyan-500/20 font-mono text-[5px] pointer-events-none">+</div>
 
                     {/* Scanning CRT lines over the chamber */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,229,255,0.03)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opac-70" />
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,229,255,0.03)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-70" />
 
                     {/* Transparent Click Overlay covering the Robot, toggles chat window */}
                     <div
