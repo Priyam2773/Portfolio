@@ -537,7 +537,7 @@ export default function PortfolioAssistant() {
                         initial={{ opacity: 0, scale: 0.92, x: 40 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0.92, x: 40 }}
-                        className="pointer-events-auto w-[80vw] sm:w-[310px] h-[420px] flex flex-col rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,229,255,0.15)] border border-cyan-500/20 bg-[#050816]/95 backdrop-blur-xl mb-3 relative"
+                        className="pointer-events-auto w-[75vw] sm:w-[280px] h-[375px] flex flex-col rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,229,255,0.15)] border border-cyan-500/20 bg-[#050816]/95 backdrop-blur-xl mb-3 relative"
                     >
                         {/* CRT Scanline Glitch Style HUD Overlay */}
                         <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,229,255,0.04)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-70" />
@@ -549,18 +549,18 @@ export default function PortfolioAssistant() {
                         <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent pointer-events-none" />
 
                         {/* Header */}
-                        <div className="flex items-center justify-between px-4 py-3 border-b border-cyan-500/10 bg-slate-950/60 z-20">
-                            <div className="flex items-center gap-2.5">
+                        <div className="flex items-center justify-between px-3.5 py-2 border-b border-cyan-500/10 bg-slate-950/60 z-20">
+                            <div className="flex items-center gap-2">
                                 <div className="relative">
                                     <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping absolute inset-0" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 relative" />
                                 </div>
                                 <div className="font-mono">
-                                    <h4 className="text-[11px] font-bold text-white tracking-widest uppercase flex items-center gap-1.5">
-                                        <Terminal size={12} className="text-cyan-400" />
+                                    <h4 className="text-[10px] font-bold text-white tracking-widest uppercase flex items-center gap-1">
+                                        <Terminal size={10} className="text-cyan-400" />
                                         JARVIS_LINK
                                     </h4>
-                                    <span className="text-[8px] text-purple-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span className="text-[7px] text-purple-400 font-bold uppercase tracking-wider flex items-center gap-0.5">
                                         <Activity size={8} className="animate-pulse" />
                                         Cognitive Core v1.4 // OK
                                     </span>
@@ -586,13 +586,13 @@ export default function PortfolioAssistant() {
                         </div>
 
                         {/* Messages panel */}
-                        <div className="flex-grow overflow-y-auto p-3.5 space-y-3.5 scrollbar-thin scrollbar-thumb-cyan-500/10 scrollbar-track-transparent z-20">
+                        <div className="flex-grow overflow-y-auto p-2.5 space-y-2.5 scrollbar-thin scrollbar-thumb-cyan-500/10 scrollbar-track-transparent z-20">
                             {messages.map((msg, index) => {
                                 const isAi = msg.sender === 'ai';
                                 return (
                                     <div key={index} className={`flex ${isAi ? 'justify-start' : 'justify-end'}`}>
                                         <div className={`max-w-[85%] flex flex-col ${isAi ? 'items-start' : 'items-end'}`}>
-                                            <div className={`px-4 py-2.5 rounded-2xl text-[11px] border ${isAi
+                                            <div className={`px-3 py-2 rounded-2xl text-[10px] border ${isAi
                                                 ? 'bg-slate-900/60 border-cyan-500/10 text-gray-300 rounded-tl-none font-mono shadow-[0_0_12px_rgba(0,229,255,0.02)]'
                                                 : 'bg-gradient-to-r from-cyan-600/20 to-blue-600/20 border-cyan-400/30 text-cyan-100 font-semibold rounded-tr-none shadow-[0_0_15px_rgba(0,229,255,0.08)] font-mono'
                                                 }`}>
@@ -633,7 +633,7 @@ export default function PortfolioAssistant() {
                                                     formatMessage(msg.text)
                                                 )}
                                             </div>
-                                            <span className="text-[8px] text-cyan-500/50 font-mono mt-1 px-1">
+                                            <span className="text-[7.5px] text-cyan-500/50 font-mono mt-0.5 px-0.5">
                                                 TIMESTAMP: {msg.timestamp}
                                             </span>
                                         </div>
@@ -653,12 +653,12 @@ export default function PortfolioAssistant() {
                         </div>
 
                         {/* Suggestion Chips */}
-                        <div className="px-3.5 py-1.5 flex gap-1.5 overflow-x-auto border-t border-cyan-500/10 bg-slate-950/40 scrollbar-none whitespace-nowrap z-20">
+                        <div className="px-2.5 py-1.25 flex gap-1 overflow-x-auto border-t border-cyan-500/10 bg-slate-950/40 scrollbar-none whitespace-nowrap z-20">
                             {SUGGESTIONS.map((item, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => handleSuggestionClick(item)}
-                                    className="px-2.5 py-0.5 bg-cyan-950/20 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-400 text-cyan-300 hover:text-white rounded-md text-[8.5px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer shadow-inner"
+                                    className="px-2 py-0.5 bg-cyan-950/20 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-400 text-cyan-300 hover:text-white rounded-md text-[8px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer shadow-inner"
                                 >
                                     [{item}]
                                 </button>
@@ -666,7 +666,7 @@ export default function PortfolioAssistant() {
                         </div>
 
                         {/* Input Footer */}
-                        <div className="p-2 border-t border-cyan-500/10 bg-[#050816] flex items-center gap-1.5 z-20">
+                        <div className="p-1.5 border-t border-cyan-500/10 bg-[#050816] flex items-center gap-1 z-20">
                             <input
                                 ref={inputRef}
                                 type="text"
@@ -674,13 +674,13 @@ export default function PortfolioAssistant() {
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 placeholder="ENTER SECURE COMMAND..."
-                                className="flex-grow bg-slate-950 border border-cyan-500/20 focus:border-cyan-400 rounded-xl px-3 py-1.5 text-[11px] font-mono text-cyan-100 placeholder-cyan-700 outline-none transition-all duration-300 w-full focus:shadow-[0_0_12px_rgba(0,229,255,0.1)]"
+                                className="flex-grow bg-slate-950 border border-cyan-500/20 focus:border-cyan-400 rounded-xl px-2.5 py-1 text-[10px] font-mono text-cyan-100 placeholder-cyan-700 outline-none transition-all duration-300 w-full focus:shadow-[0_0_12px_rgba(0,229,255,0.1)]"
                             />
                             <button
                                 onClick={() => handleSendMessage(inputValue)}
-                                className="p-1.5 ml-0.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white flex items-center justify-center cursor-pointer shadow-[0_0_10px_rgba(0,229,255,0.2)] transition-all border border-cyan-400/20"
+                                className="p-1.25 ml-0.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white flex items-center justify-center cursor-pointer shadow-[0_0_10px_rgba(0,229,255,0.2)] transition-all border border-cyan-400/20"
                             >
-                                <Send size={11} />
+                                <Send size={10} />
                             </button>
                         </div>
                     </motion.div>
@@ -707,7 +707,7 @@ export default function PortfolioAssistant() {
 
                 {/* Cyberpunk Hologram Chamber Frame */}
                 {/* Compact design */}
-                <div className="w-[105px] h-[145px] sm:w-[135px] sm:h-[185px] lg:w-[190px] lg:h-[265px] relative group select-none rounded-3xl overflow-hidden border border-cyan-500/10 shadow-[0_0_20px_rgba(0,E5,FF,0.05)] bg-[#050816]">
+                <div className="w-[90px] h-[125px] sm:w-[115px] sm:h-[155px] lg:w-[150px] lg:h-[210px] relative group select-none rounded-3xl overflow-hidden border border-cyan-500/10 shadow-[0_0_20px_rgba(0,E5,FF,0.05)] bg-[#050816]">
 
                     {/* Sci-fi HUD crosshair details on corners */}
                     <div className="absolute top-2 left-2 text-cyan-500/40 font-mono text-[7px] pointer-events-none">LNK.01</div>
